@@ -70,6 +70,6 @@ SweepAware is an solution anyone in the City of San Diego can use to get an SMS 
 
 ### <a name="section_participate"></a>How to Participate
 
-- Chat with us on the project Slack [#sweepaware](https://opensandiego.slack.com/signup) channel
+- Chat with us on the project channel [![Join the chat at https://gitter.im/opensandiego/sd-sweepaware](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/opensandiego/sd-sweepaware?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)  
 - Email us at [opensandiego@googlegroups.com](opensandiego@googlegroups.com)
 - Join our [meetups](http://www.meetup.com/Open-San-Diego)
