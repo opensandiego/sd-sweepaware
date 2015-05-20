@@ -26,7 +26,7 @@ SweepAware is an solution anyone in the City of San Diego can use to get an SMS 
 ### <a name="section_data"></a>Data
 
 - Streets data from [SanGIS](http://www.sangis.org/ "San Diego Geographic Information Source") (polygons)
-- Streetsweeping schedule currently in PDF format here [City of San Diego Street Sweeping Schedule](http://www.sandiego.gov/stormwater/services/sweepschedules.shtml/ "Street sweeping Schedule") (points)
+- Streetsweeping schedule currently in PDF format here [City of San Diego Street Sweeping Schedule](http://www.sandiego.gov/stormwater/services/sweepschedules.shtml "Street sweeping Schedule") (points)
 
 ### <a name="section_stack"></a>Stack
 
@@ -71,5 +71,10 @@ SweepAware is an solution anyone in the City of San Diego can use to get an SMS 
 ### <a name="section_participate"></a>How to Participate
 
 - Chat with us on the project channel [![Join the chat at https://gitter.im/opensandiego/sd-sweepaware](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/opensandiego/sd-sweepaware?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)  
-- Email us at [opensandiego@googlegroups.com](opensandiego@googlegroups.com)
+- Email us as a group at [opensandiego@googlegroups.com](opensandiego@googlegroups.com)
+- Contact the SweepAware team lead directly [jerry@opensandiego.org](jerry@opensandiego.org) 
 - Join our [meetups](http://www.meetup.com/Open-San-Diego)
+- Check our website too and invite anyone you think might be interested [OpenSanDiego.org](http://opensandiego.org)
+- Got a project you would like to champion for the group to consider? Use this [handy form](http://bit.ly/cfaosdprojectsform)
+- Want to see the other projects pitched? Generally view them in [this sheet](http://bit.ly/cfaosdpublic) and start a conversation in our [Goole Groups](opensandiego@googlegroups.com) forum.
+- Check out our meeting agendas and records [here](http://bit.ly/cfaosdpublic)
