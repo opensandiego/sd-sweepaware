@@ -26,7 +26,7 @@ SweepAware is an solution anyone in the City of San Diego can use to get an SMS 
 ### <a name="section_data"></a>Data
 
 - Streets data from [SanGIS](http://www.sangis.org/ "San Diego Geographic Information Source") (polygons)
-- Streetsweeping schedule currently in PDF format here [City of San Diego Street Sweeping Schedule](http://www.sandiego.gov/stormwater/services/sweepschedules.shtml/ "Street sweeping Schedule") (points)
+- Streetsweeping schedule currently in PDF format here [City of San Diego Street Sweeping Schedule](http://www.sandiego.gov/stormwater/services/sweepschedules.shtml "Street sweeping Schedule") (points)
 
 ### <a name="section_stack"></a>Stack
 
