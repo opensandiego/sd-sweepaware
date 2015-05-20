@@ -47,18 +47,18 @@ SweepAware is an solution anyone in the City of San Diego can use to get an SMS 
 
 ### <a name="section_similar"></a>Similar projects and models
 
-[http://www.sandiegocounty.gov/parks/pmap_google.html](http://www.sandiegocounty.gov/parks/pmap_google.html)
-[https://github.com/codeforamerica/denver-schedules](https://github.com/codeforamerica/denver-schedules)
-[https://github.com/codeforamerica/denver-schedules-api](https://github.com/codeforamerica/denver-schedules-api)
-[https://github.com/CarouselSMS/AntiTow-site](https://github.com/CarouselSMS/AntiTow-site)
-[https://github.com/kaplali/parkstorm](https://github.com/kaplali/parkstorm)
-[http://sweeparound.us/](http://sweeparound.us/) Not Open Source
-[https://github.com/phoenixar/StreetSweepingScheduleParser](https://github.com/phoenixar/StreetSweepingScheduleParse)
-[http://www.cityofboston.gov/publicworks/sweeping/](http://www.cityofboston.gov/publicworks/sweeping/)
-[http://www.somervillema.gov/residents/street-sweeping-schedule](http://www.somervillema.gov/residents/street-sweeping-schedule)
-[http://www.cityofevanston.org/parking/street-cleaning](http://www.cityofevanston.org/parking/street-cleaning)
-[https://play.google.com/store/apps/details?id=com.metromile.release&hl=en](https://play.google.com/store/apps/details?id=com.metromile.release&hl=en)
-[http://tkttxt.com/]([http://tkttxt.com/)
+- [http://www.sandiegocounty.gov/parks/pmap_google.html](http://www.sandiegocounty.gov/parks/pmap_google.html)  
+- [https://github.com/codeforamerica/denver-schedules](https://github.com/codeforamerica/denver-schedules)  
+- [https://github.com/codeforamerica/denver-schedules-api](https://github.com/codeforamerica/denver-schedules-api)  
+- [https://github.com/CarouselSMS/AntiTow-site](https://github.com/CarouselSMS/AntiTow-site)  
+- [https://github.com/kaplali/parkstorm](https://github.com/kaplali/parkstorm)  
+- [http://sweeparound.us/](http://sweeparound.us/) Not Open Source  
+- [https://github.com/phoenixar/StreetSweepingScheduleParser](https://github.com/phoenixar/StreetSweepingScheduleParse)  
+- [http://www.cityofboston.gov/publicworks/sweeping/](http://www.cityofboston.gov/publicworks/sweeping/)  
+- [http://www.somervillema.gov/residents/street-sweeping-schedule](http://www.somervillema.gov/residents/street-sweeping-schedule)  
+- [http://www.cityofevanston.org/parking/street-cleaning](http://www.cityofevanston.org/parking/street-cleaning)  
+- [https://play.google.com/store/apps/details?id=com.metromile.release&hl=en](https://play.google.com/store/apps/details?id=com.metromile.release&hl=en)  
+- [http://tkttxt.com/]([http://tkttxt.com/)  
 
 ### <a name="section_github"></a>GitHub
 
