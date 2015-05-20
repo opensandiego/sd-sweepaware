@@ -76,5 +76,5 @@ SweepAware is an solution anyone in the City of San Diego can use to get an SMS 
 - Join our [meetups](http://www.meetup.com/Open-San-Diego)
 - Check our website and invite anyone [OpenSanDiego.org](http://opensandiego.org)
 - Got a project to pitch? Use this [handy form](http://bit.ly/cfaosdprojectsform).
-- View all the projects pitched? See [this sheet](http://bit.ly/cfaosdpublic) and to add to them just post in our [Google Group](http://bit.ly/cfaosdgg).
+- View [all the projects pitched](http://bit.ly/cfaosdpublic)? Contribute and comment on them in our [Google Group](http://bit.ly/cfaosdgg).
 - Check out our meeting agendas and records [here](http://bit.ly/cfaosdpublic).
