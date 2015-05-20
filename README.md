@@ -71,7 +71,7 @@ SweepAware is an solution anyone in the City of San Diego can use to get an SMS 
 ### <a name="section_participate"></a>How to Participate
 
 - Chat with us on the project channel [![Join the chat at https://gitter.im/opensandiego/sd-sweepaware](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/opensandiego/sd-sweepaware?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)  
-- Email us as a group at [opensandiego@googlegroups.com](mailto:opensandiego@googlegroups.com)
+- Email us as a group at [opensandiego@googlegroups.com](opensandiego@googlegroups.com)
 - Contact the SweepAware team lead directly [jerry@opensandiego.org](mailto:jerry@opensandiego.org) 
 - Join our [meetups](http://www.meetup.com/Open-San-Diego)
 - Check our website too and invite anyone you think might be interested [OpenSanDiego.org](http://opensandiego.org)
