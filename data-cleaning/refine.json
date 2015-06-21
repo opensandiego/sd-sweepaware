@@ -1,0 +1,198 @@
+[
+  {
+    "op": "core/column-split",
+    "description": "Split column Schedule by separator",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Schedule",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": "^(?:Not Posted,)",
+    "regex": true,
+    "maxColumns": 0
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column Schedule 1",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Schedule 1",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": true,
+        "fromError": false,
+        "from": [],
+        "to": "Not Posted"
+      }
+    ]
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column Both Sides at index 5 based on column Schedule 2 using expression grel:if(contains(value, \"Both Sides\"),\"Y\",\"N\")",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "value",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "Schedule 1",
+          "omitBlank": false,
+          "columnName": "Schedule 1",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": "Not Posted",
+                "l": "Not Posted"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "row-based"
+    },
+    "newColumnName": "Both Sides",
+    "columnInsertIndex": 5,
+    "baseColumnName": "Schedule 2",
+    "expression": "grel:if(contains(value, \"Both Sides\"),\"Y\",\"N\")",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column Month at index 5 based on column Schedule 2 using expression grel:if(contains(value, \"Odd Month\"),\"Odd\",if(contains(value, \"Even Month\"),\"Even\",\"Every\"))",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "value",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "Schedule 1",
+          "omitBlank": false,
+          "columnName": "Schedule 1",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": "Not Posted",
+                "l": "Not Posted"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "row-based"
+    },
+    "newColumnName": "Month",
+    "columnInsertIndex": 5,
+    "baseColumnName": "Schedule 2",
+    "expression": "grel:if(contains(value, \"Odd Month\"),\"Odd\",if(contains(value, \"Even Month\"),\"Even\",\"Every\"))",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column Day at index 5 based on column Schedule 2 using expression grel:replace(value,/(Both Sides Odd Month)|(Both Sides Even Month)|(Both Sides)/,\"\")",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "newColumnName": "Day",
+    "columnInsertIndex": 5,
+    "baseColumnName": "Schedule 2",
+    "expression": "grel:replace(value,/(Both Sides Odd Month)|(Both Sides Even Month)|(Both Sides)/,\"\")",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column Time at index 4 based on column Schedule 1 using expression grel:split(split(value, \"(\")[1],\")\")[0]",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "newColumnName": "Time",
+    "columnInsertIndex": 4,
+    "baseColumnName": "Schedule 1",
+    "expression": "grel:split(split(value, \"(\")[1],\")\")[0]",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column NS at index 4 based on column Schedule 1 using expression grel:replace(filter(value.split(\",\"),v,contains(v,\"NS\"))[0],\"NS\",\"\")",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "newColumnName": "NS",
+    "columnInsertIndex": 4,
+    "baseColumnName": "Schedule 1",
+    "expression": "grel:replace(filter(value.split(\",\"),v,contains(v,\"NS\"))[0],\"NS\",\"\")",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column SS at index 4 based on column Schedule 1 using expression grel:replace(filter(value.split(\",\"),v,contains(v,\"SS\"))[0],\"SS\",\"\")",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "newColumnName": "SS",
+    "columnInsertIndex": 4,
+    "baseColumnName": "Schedule 1",
+    "expression": "grel:replace(filter(value.split(\",\"),v,contains(v,\"SS\"))[0],\"SS\",\"\")",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column WS at index 4 based on column Schedule 1 using expression grel:replace(filter(value.split(\",\"),v,contains(v,\"WS\"))[0],\"WS\",\"\")",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "newColumnName": "WS",
+    "columnInsertIndex": 4,
+    "baseColumnName": "Schedule 1",
+    "expression": "grel:replace(filter(value.split(\",\"),v,contains(v,\"WS\"))[0],\"WS\",\"\")",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column ES at index 4 based on column Schedule 1 using expression grel:replace(filter(value.split(\",\"),v,contains(v,\"ES\"))[0],\"ES\",\"\")",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "newColumnName": "ES",
+    "columnInsertIndex": 4,
+    "baseColumnName": "Schedule 1",
+    "expression": "grel:replace(filter(value.split(\",\"),v,contains(v,\"ES\"))[0],\"ES\",\"\")",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-reorder",
+    "description": "Reorder columns",
+    "columnNames": [
+      "Street Name",
+      "Block Range",
+      "Limits",
+      "Schedule 1",
+      "Schedule 2",
+      "Both Sides",
+      "Month",
+      "Day",
+      "Time",
+      "ES",
+      "WS",
+      "SS",
+      "NS"
+    ]
+  }
+]
