@@ -16,7 +16,6 @@ router.post('/add', function(req, res, next) {
     var requestedAlerts = req.body.requestedAlerts;
 
     // TODO: do we want a maximum?
-    // TODO: phone, email verification
     // TODO: check for duplicates?
     if ((!phoneNumber && !emailAddress)
         || !requestedAlerts
