@@ -43,6 +43,7 @@ router.post('/add', function(req, res, next) {
             requestHash: hash
         });
     }
+
     alertCollection.insert(alerts)
         .complete(function(err, doc) {
             if (err) { return res.json({ success: false, error: "DBERROR" }); }
@@ -53,9 +54,30 @@ router.post('/add', function(req, res, next) {
 
 /* Verify alert */
 router.post('/verify', function(req, res, next) {
-    // TODO: switch alert to active matching the requestHash
-    // TODO: don't allow activation after 24 hours
-    return res.json({ success: false });
+    // switch alert to active matching the requestHash
+    var requestHash = req.body.requestHash;
+    var device = req.body.device;
+
+    if (!requestHash || !device) {
+        return res.json({ success: false, error: "WRONGARGS" });
+    }
+
+    var updateObject = {};
+    if (device == "phone") {
+        updateObject.phoneEnabled = true;
+    } else if (device == "email") {
+        updateObject.emailEnabled = true;
+    }
+
+    var db = req.db;
+    var alertCollection = db.get('alerts');
+    // TODO: don't allow activation after 24 hours?
+    alertCollection.update({ requestHash: requestHash },
+                           { $set: updateObject })
+                           .complete(function(err, doc) {
+                               if (err) { return res.json({ success: false, error: "DBERROR" }); }
+                               return res.json({ success: true });
+                           });
 });
 
 /* Remove alert by ID */
@@ -67,6 +89,7 @@ router.post('/remove', function(req, res, next) {
 
 module.exports = router;
 
+// string extension for conversion hashing to integer
 String.prototype.hashCode = function() {
   var hash = 0, i, chr, len;
   if (this.length == 0) return hash;
