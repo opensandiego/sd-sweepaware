@@ -80,11 +80,16 @@ router.post('/verify', function(req, res, next) {
                            });
 });
 
-/* Remove alert by ID */
+/* Remove alert by ID (email) */
+// XXX: text messages won't be able to have a link? must deregister all?
 router.post('/remove', function(req, res, next) {
-    // TODO: remove alert from database
-    // TODO: display message confirming removal
-    return res.json({ success: false });
+    var requestHash = req.body.requestHash;
+    alertCollection.update({ requestHash: requestHash },
+                           { $set: { emailAddress: "", emailEnabled: false } })
+                           .complete(function(err, doc) {
+                               if (err) { return res.json({ success: false, error: "DBERROR" }); }
+                               return res.json({ success: true });
+                           });
 });
 
 module.exports = router;
