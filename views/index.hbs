@@ -91,7 +91,7 @@
         address[addressType] = val;
       }
     }
-    
+
     return address;
   }
 
@@ -107,7 +107,7 @@
     /**
     * Formats and validates user phone input field as user enters keystroke
     */
-    $('#phoneField').oninput = function(evt) {
+    $('#phoneField').on('input', function(evt) {
       // Checking as user types
       var val = evt.target.value.replace(/\D/g, '');
       var newVal = '';
@@ -125,7 +125,7 @@
       }
       newVal += val;
       evt.target.value = newVal;
-    };
+    });
 
     
 
