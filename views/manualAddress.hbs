@@ -1,0 +1,184 @@
+<div class="container">
+
+  <!-- Main User input fields -->
+  <div id="locationField">
+    <input class="viewableField" id="autocomplete" placeholder="Enter your address" type="text" onblur="checkAddressValid()" />
+    <input class="viewableField" id="phoneField" placeholder="Enter your phone number" type="text"/>
+    <input class="viewableField" id="radiusField" placeholder="Enter alert block radius" type="number"/>
+    <input class="viewableField" id="emailField" placeholder="Enter your email" type="email" required />
+
+  </div>
+
+  <!-- Submit Btn -->
+  <button id="alertBtn">Alert me</button>
+
+</div>
+
+<!-- Our Scripts -->
+<script type="text/javascript">
+
+  // -- Globabl Variables ---
+  var validAddress = false;
+
+  // --- Address Auto Complete Scripts --- //
+  
+  var placeSearch, autocomplete;
+  var componentForm = {
+    street_number: 'short_name',
+    route: 'long_name',
+    locality: 'long_name',
+    administrative_area_level_1: 'short_name',
+    country: 'long_name',
+    postal_code: 'short_name'
+  };
+
+ /**
+ * Initilizes the google map address auto complete object
+ */
+ function initAutocomplete() {
+    // Create the autocomplete object, restricting the search to geographical location types.
+    autocomplete = new google.maps.places.Autocomplete(
+      /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+      {types: ['geocode']});
+
+    // When the user selects an address from the dropdown, set visual cue and set validAddress to true
+    autocomplete.addListener('place_changed', function(){
+      document.getElementById('autocomplete').style.border = "1px solid green";
+      validAddress = true;
+    });
+
+    //Restric range for just San Diego
+    var circle = new google.maps.Circle({
+      center: {lat:32.7152778, lng: -117.1563889},
+      radius: 40000 //TODO Bump this up/down?
+    });
+    autocomplete.setBounds(circle.getBounds());
+  }
+
+
+  /**
+  * Gives visual que to user on valid address selection
+  */
+  function checkAddressValid(){
+    // console.log();
+    // console.log(autocomplete.getPlace());
+    if(typeof autocomplete.getPlace() != 'undefined'){
+      if(typeof autocomplete.getPlace().address_components != 'undefined'){
+        document.getElementById('autocomplete').style.border = "1px solid green";
+        return;
+      }
+    }
+    document.getElementById('autocomplete').style.border = "1px solid red";
+
+  };
+  
+  /**
+  * Getter for all address components
+  */
+  function getAddressFields() {
+
+    // Get the place details from the autocomplete object.
+    var place = autocomplete.getPlace();
+
+    address = {};
+    // Get each component of address from the place details and fill the corresponding field on the form.
+    for (var i = 0; i < place.address_components.length; i++) {
+      var addressType = place.address_components[i].types[0];
+      if (componentForm[addressType]) {
+        var val = place.address_components[i][componentForm[addressType]];
+        address[addressType] = val;
+      }
+    }
+
+    return address;
+  }
+
+  //------------------------------------------------//
+
+
+  // --- Jquery ready wrapper --- //
+  $().ready(function(){
+
+
+    // --- Phone Field Masking Script --- // 
+
+    /**
+    * Formats and validates user phone input field as user enters keystroke
+    */
+    $('#phoneField').on('input', function(evt) {
+      // Checking as user types
+      var val = evt.target.value.replace(/\D/g, '');
+      var newVal = '';
+      if((val.length > 3) && (val.length <= 6)) {
+        newVal += '(' + val.substr(0, 3) + ') ';
+        val = val.substr(3);
+      }
+      if (val.length > 6) {
+        newVal +=  '(' + val.substr(0, 3) + ') ';
+        newVal += val.substr(3, 3) + '-';
+        val = val.substr(6);
+        if(val.length > 4){
+          val = val.substr(0, val.length - 1);
+        }
+      }
+      newVal += val;
+      evt.target.value = newVal;
+    });
+
+    
+
+    // --- Data Calls --- //
+
+    /**
+    * Sends user data to the server using a POST request.
+    */
+    function sendData(data){
+      $.post('add', data, function(data) { 
+        alert("Response: " + data); 
+      });
+    }
+
+    /**
+    * Allows the user to submit their data to be verified. Grabs all the user data 
+    * from the form fields and then calls sendData(data) passing all user 
+    * information.
+    */
+    $('#alertBtn').on('click', function submitData(){
+
+      //Make sure user selected valid address
+      if(!validAddress){
+        $('#autocomplete').css("border: 1px solid red;");
+      }
+
+      // Grab al form fields
+      email = $('#emailField').val();
+      phone = $('#phoneField').val().replace(/\D/g, '');
+      alertRadius = $('#radiusField').val();
+      address = getAddressFields();
+
+      //Format Data for backend
+      data = {
+        'emailAddress': email,
+        'phoneNumber': phone,
+        'alertRadius': alertRadius,
+        'address': address 
+      }
+
+      //POST data to backend
+      sendData(data);
+
+    });
+
+    //------------------------------//
+
+  });
+
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?signed_in=true&libraries=places&callback=initAutocomplete" async defer></script>
+
+
+<script>
+
+</script>
+

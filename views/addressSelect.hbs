@@ -1,8 +1,6 @@
-<h1>{{title}}</h1>
-<p>Cleaner streets without the tickets</p>
-
 <div id="mapCanvas"></div>
-<br/>
+
+
 <div id="infoPanel">
   <b>Marker status:</b>
   <div id="markerStatus"><i>Click and drag the marker.</i></div>
@@ -11,6 +9,8 @@
   <b>Closest matching address:</b>
   <div id="address"></div>
 </div>
+<a id="nextBtn" class="btn btn-success pull-right" href="/manualAddress">Continue</button>
+<a href="/manualAddress" id="enterManualLink" class="pull-right">Enter Address manually</a>
 
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
@@ -45,37 +45,61 @@
   }
 
   function initialize() {
-    var latLng = new google.maps.LatLng(-34.397, 150.644);
+    var latLng = new google.maps.LatLng(32.7152778, -117.1563889);
+    
     var map = new google.maps.Map(document.getElementById('mapCanvas'), {
-      zoom: 8,
+      zoom: 13,
       center: latLng,
+      streetViewControl: false,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
+    
     var marker = new google.maps.Marker({
       position: latLng,
-      title: 'Point A',
+      title: 'User Address Marker',
       map: map,
-      draggable: true
+      draggable: true,
+      animation: google.maps.Animation.DROP
     });
 
   // Update current position info.
   updateMarkerPosition(latLng);
   geocodePosition(latLng);
   
-  // Add dragging event listeners.
+  // Add manual marker dragging event listeners.
   google.maps.event.addListener(marker, 'dragstart', function() {
     updateMarkerAddress('Dragging...');
   });
-  
   google.maps.event.addListener(marker, 'drag', function() {
     updateMarkerStatus('Dragging...');
     updateMarkerPosition(marker.getPosition());
   });
-  
   google.maps.event.addListener(marker, 'dragend', function() {
     updateMarkerStatus('Drag ended');
     geocodePosition(marker.getPosition());
   });
+
+
+  // Add map scroll marker dragging event listeners. TODO only enable this on mobile?
+  google.maps.event.addListener(map, 'center_changed', function() {
+    // 0.1 seconds after the center of the map has changed,
+    // set back the marker position.
+    window.setTimeout(function() {
+      var center = map.getCenter();
+      marker.setPosition(center);
+      updateMarkerStatus('Dragging...');
+      updateMarkerPosition(center);
+
+    }, 10);
+  });
+  google.maps.event.addListener(map, 'dragend', function() {
+    //When user finished dragging calc nearest address
+    window.setTimeout(function() {
+      updateMarkerStatus('Drag ended');
+      geocodePosition(marker.getPosition());
+    }, 100);
+  });
+
 }
 
 // Onload handler to fire off the app.
