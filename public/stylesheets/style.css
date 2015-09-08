@@ -1,9 +1,15 @@
-body {
-  padding: 50px;
+body{
+  margin: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
+#header{
+  height:100px;
+  background: green;
+  margin-bottom: 20px;
+}
+
+a{
   color: #00B7FF;
 }
 
@@ -35,7 +41,14 @@ a {
   border: 1px solid black;
 }
 
-#address{
-  padding-top: 10px;
-  /*display: none;*/
+.title{
+  position: absolute;
+  left: 14px;
+  top: -6px;
+}
+.tagline{
+  position: absolute;
+  left: 128px;
+  top: 61px;
+}
 }

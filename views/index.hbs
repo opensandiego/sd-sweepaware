@@ -1,19 +1,24 @@
-<h1>{{title}}</h1>
-<p>Cleaner streets without the tickets</p>
+<div id="header">
+</div>
+<div class="container">
+  <h1 class="title">{{title}}</h1>
+  <p class="tagline">Cleaner streets without the tickets</p>
 
-<!-- Main User input fields -->
-<div id="locationField">
-  <input class="viewableField" id="autocomplete" placeholder="Enter your address" type="text" onblur="checkAddressValid()" />
-  <input class="viewableField" id="phoneField" placeholder="Enter your phone number" type="text"/>
-  <input class="viewableField" id="radiusField" placeholder="Enter alert block radius" type="number"/>
-  <input class="viewableField" id="emailField" placeholder="Enter your email" type="email" required />
+  <!-- Main User input fields -->
+  <div id="locationField">
+    <input class="viewableField" id="autocomplete" placeholder="Enter your address" type="text" onblur="checkAddressValid()" />
+    <input class="viewableField" id="phoneField" placeholder="Enter your phone number" type="text"/>
+    <input class="viewableField" id="radiusField" placeholder="Enter alert block radius" type="number"/>
+    <input class="viewableField" id="emailField" placeholder="Enter your email" type="email" required />
+
+  </div>
+
+  <!-- Submit Btn -->
+  <button id="alertBtn">Alert me</button>
 
 </div>
 
-<!-- Submit Btn -->
-<button id="alertBtn">Alert me</button>
-
-<!-- Third Party Scripts -->
+<!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 <!-- Our Scripts -->
