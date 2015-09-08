@@ -1,9 +1,15 @@
-body {
-  padding: 50px;
+body{
+  margin: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
+#header{
+  height:75px;
+  background: green;
+  margin-bottom: 20px;
+}
+
+a{
   color: #00B7FF;
 }
 
@@ -27,15 +33,49 @@ a {
   width: 200px;
 }
 
-.alertBtn{
+#alertBtn{
   height: 30px;
   width: 80px;
   border-radius: 7px;
   background: orange none repeat scroll 0% 0%;
   border: 1px solid black;
 }
+#nextBtn{
+  margin-top: 20px;
+  margin-right: 20px;
+}
+#enterManualLink{
+  margin-top: 20px;
+  margin-right: 20px;
+}
 
-#address{
+
+.title{
+  text-align: center;
+  margin:0;
   padding-top: 10px;
-  /*display: none;*/
+  /*display: block;*/
+  /*margin:auto;*/
+  /*left: 14px;*/
+  /*top: -6px;*/
+}
+.tagline{
+  position: absolute;
+  left: auto;
+  top: 61px;
+}
+
+/*addressSelect*/
+#mapCanvas {
+  width: 100%;
+  height: 400px;
+  float: left;
+}
+#infoPanel {
+  float: left;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+#infoPanel div {
+  margin-bottom: 5px;
 }
