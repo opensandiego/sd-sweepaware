@@ -45,6 +45,7 @@
   }
 
   function initialize() {
+    // var map = L.map('map').setView([32.7152778, -117.1563889], 13);
     var latLng = new google.maps.LatLng(32.7152778, -117.1563889);
     
     var map = new google.maps.Map(document.getElementById('mapCanvas'), {
@@ -59,8 +60,23 @@
       title: 'User Address Marker',
       map: map,
       draggable: true,
-      animation: google.maps.Animation.DROP
+      animation: google.maps.Animation.DROP,
     });
+
+    var circle = new google.maps.Circle({
+      strokeColor: '#FF0000',
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: '#FF0000',
+      fillOpacity: 0.35,
+      map: map,
+      center: marker.position,
+      radius: 500,
+    });
+    circle.bindTo('center', marker, 'position');
+
+    
+  console.log ("GOT HERE")
 
   // Update current position info.
   updateMarkerPosition(latLng);
