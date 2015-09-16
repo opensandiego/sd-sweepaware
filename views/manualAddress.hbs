@@ -21,7 +21,7 @@
   var validAddress = false;
 
   // --- Address Auto Complete Scripts --- //
-  
+
   var placeSearch, autocomplete;
   var componentForm = {
     street_number: 'short_name',
@@ -71,7 +71,15 @@
     document.getElementById('autocomplete').style.border = "1px solid red";
 
   };
-  
+
+  /**
+  * Getter for the lat/long coordinates based on the autocompleted field
+  */
+  function getCoordinates() {
+    var place = autocomplete.getPlace();
+    return place.geometry.location;
+  }
+
   /**
   * Getter for all address components
   */
@@ -79,6 +87,7 @@
 
     // Get the place details from the autocomplete object.
     var place = autocomplete.getPlace();
+    var latLong = place.geometry.location;
 
     address = {};
     // Get each component of address from the place details and fill the corresponding field on the form.
@@ -100,7 +109,7 @@
   $().ready(function(){
 
 
-    // --- Phone Field Masking Script --- // 
+    // --- Phone Field Masking Script --- //
 
     /**
     * Formats and validates user phone input field as user enters keystroke
@@ -125,7 +134,7 @@
       evt.target.value = newVal;
     });
 
-    
+
 
     // --- Data Calls --- //
 
@@ -133,14 +142,14 @@
     * Sends user data to the server using a POST request.
     */
     function sendData(data){
-      $.post('add', data, function(data) { 
-        alert("Response: " + data); 
+      $.post('add', data, function(data) {
+        alert("Response: " + data);
       });
     }
 
     /**
-    * Allows the user to submit their data to be verified. Grabs all the user data 
-    * from the form fields and then calls sendData(data) passing all user 
+    * Allows the user to submit their data to be verified. Grabs all the user data
+    * from the form fields and then calls sendData(data) passing all user
     * information.
     */
     $('#alertBtn').on('click', function submitData(){
@@ -155,13 +164,16 @@
       phone = $('#phoneField').val().replace(/\D/g, '');
       alertRadius = $('#radiusField').val();
       address = getAddressFields();
+      coordinates = getCoordinates();
 
       //Format Data for backend
       data = {
         'emailAddress': email,
         'phoneNumber': phone,
         'alertRadius': alertRadius,
-        'address': address 
+        'address': address,
+        'lat':coordinates.H,
+        'long':coordinates.L
       }
 
       //POST data to backend
