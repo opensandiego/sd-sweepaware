@@ -58,7 +58,7 @@ SweepAware is an solution anyone in the City of San Diego can use to get an SMS 
 - [https://github.com/CarouselSMS/AntiTow-site](https://github.com/CarouselSMS/AntiTow-site)
 - [https://github.com/kaplali/parkstorm](https://github.com/kaplali/parkstorm)
 - [http://sweeparound.us/](http://sweeparound.us/) Not Open Source
-- [https://github.com/phoenixar/StreetSweepingScheduleParser](https://github.com/phoenixar/StreetSweepingScheduleParse)
+- [https://github.com/phoenixar/StreetSweepingScheduleParser](https://github.com/phoenixar/StreetSweepingScheduleParser)
 - [http://www.cityofboston.gov/publicworks/sweeping/](http://www.cityofboston.gov/publicworks/sweeping/)
 - [http://www.somervillema.gov/residents/street-sweeping-schedule](http://www.somervillema.gov/residents/street-sweeping-schedule)
 - [http://www.cityofevanston.org/parking/street-cleaning](http://www.cityofevanston.org/parking/street-cleaning)
